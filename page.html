@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <title>AI H.R.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Control Link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!--StyleSheet-->
+    <style>
+        body {
+            background-color: blanchedalmond;
+            flex:1;
+            flex-direction: column;
+            color:chocolate;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        header {
+            
+            font-size: xx-large;
+            text-align: center;
+            background-color:bisque;
+        }
+        
+        button {
+            width : 20%;
+            height:100px;
+            border-radius: 10px;
+            background-color: cadetblue;
+            color:beige;
+            text-align: center;
+            font-size: 40px;
+            font-style: italic;
+            margin-left:260px;
+            margin-top:90px
+        }
+
+        .replace{
+            background-color: crimson;
+            color:aliceblue;
+            font-size: 40px;
+            width:20%;
+            height:100px;
+            text-align: center;
+            margin-left:530px;
+        }
+    </style>
+</head>
+    <body style="overflow-y: hidden;">
+
+        <header>Employee Tracker</header>
+
+<!--Designing Page-->
+<div class="other">
+<button type="button" id="check" class="check"><text>Check</text></button>
+<button type="button" id="sort" class="sort"><text>Sort</text></button>
+</div>
+
+
+    <button class="replace" id="replace" type="button">
+        Replace
+    </button>
+
+
+<!--Control File-->
+<script type="text/javascript" >
+    $(function(){
+        $("#check").click(function(){
+            location.assign("/check")
+        });
+
+        $("#replace").click(function(){
+            location.assign("/replace")
+        });
+
+        $("#sort").click(function(){
+            location.assign("/sort")
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <title>AI H.R.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Control Link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!--StyleSheet-->
+    <style>
+        body {
+            background-color: blanchedalmond;
+            flex:1;
+            flex-direction: column;
+            color:chocolate;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            justify-content: center;
+        }
+        
+        header {
+            
+            font-size: xx-large;
+            text-align: center;
+            background-color:bisque;
+        }
+        
+        button {
+            width : 20%;
+            height:80px;
+            border-radius: 10px;
+            background-color: cadetblue;
+            color:beige;
+            text-align: center;
+            font-size: 40px;
+            font-style: italic;
+            margin-left:260px;
+            margin:150px
+        }
+
+        textarea {
+            width:30%;
+            height:50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color:aqua;
+            background-color: saddlebrown;
+            font-style: oblique;
+            border-radius: 60px;
+            text-align:center;
+            font-size: 20px;
+            justify-content: center;
+        }
+    </style>
+</head>
+    <body style="overflow-y: hidden;">
+
+        <header>Employee Tracker</header>
+
+<!--Designing Page-->
+<textarea placeholder="Enter the name of employee" class="input" id="input"
+aria-multiline="true"
+></textarea>
+<button type="button" id="check" class="check" type="submit"><text>Check</text></button>
+
+<!--Show Data-->
+<h2 id="name" class="name"></h2>
+
+<!--Control File-->
+<script type="text/javascript">
+    $(function(){
+        var name = {
+            "name":$("#input").val().toLowerCase().trim()
+        };
+
+        let nom = ""
+        $("#check").click(function(){
+            $.ajax({
+                type:'post',
+                url:'/data',
+                data:JSON.stringify(name),
+                dataType:"json",
+                contentType:"application/json",
+
+                success : function(result){
+                    $("#name").html("Name: "+result.nom)
+                }, error : function(result){
+                        alert(result.responseJSON.message)
+                }
+            })
+        })
+        
+    })
+</script>
+</body>
+</html>
